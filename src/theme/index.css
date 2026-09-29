@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
+
+/*
+ * Design tokens — taken from the sample wireframe (cit_lesson_plan_wireframe.html).
+ * Tailwind's default palette is removed so only these colours exist.
+ */
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-navy: #0c3b6e;
+  --color-navy-hover: #0a3260;
+  --color-blue: #185fa5;
+  --color-blue-ink: #0c447c;
+  --color-blue-tint: #e6f1fb;
+  --color-blue-line: #b5d4f4;
+  --color-blue-mid: #5b8fc9;
+  --color-danger: #e24b4a;
+
+  --color-bg: #ffffff;
+  --color-bg-2: #f5f7fa;
+  --color-bg-3: #eef1f5;
+  --color-ink: #1b2430;
+  --color-ink-2: #4a5563;
+  --color-ink-3: #7b8594;
+  --color-line: #e3e7ed;
+  --color-line-2: #c9d1db;
+  --color-overlay: rgb(0 0 0 / 0.38);
+
+  /* semantic status tones — badges only */
+  --color-ok-bg: #e3f4ea;
+  --color-ok: #1e6b3a;
+  --color-warn-bg: #fdf3d7;
+  --color-warn: #7a5a00;
+  --color-bad-bg: #fcebea;
+  --color-bad: #a32d2d;
+  --color-mute-bg: #eef0f3;
+  --color-mute: #4a5563;
+
+  --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-base: 14px;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--color-ink);
+    background: var(--color-bg-2);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 1px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-2);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+/* Hairline borders (0.5px on HiDPI, 1px otherwise) */
+@utility hair {
+  border-width: 1px;
+  border-style: solid;
+  @media (min-resolution: 2dppx) {
+    border-width: 0.5px;
+  }
+}
+@utility hair-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  @media (min-resolution: 2dppx) {
+    border-bottom-width: 0.5px;
+  }
+}
+@utility hair-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+  @media (min-resolution: 2dppx) {
+    border-top-width: 0.5px;
+  }
+}
+@utility hair-r {
+  border-right-width: 1px;
+  border-right-style: solid;
+  @media (min-resolution: 2dppx) {
+    border-right-width: 0.5px;
+  }
+}
+@utility hair-l {
+  border-left-width: 1px;
+  border-left-style: solid;
+  @media (min-resolution: 2dppx) {
+    border-left-width: 0.5px;
+  }
+}
+
+/* Uppercase field label from the sample */
+@utility field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fake-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
