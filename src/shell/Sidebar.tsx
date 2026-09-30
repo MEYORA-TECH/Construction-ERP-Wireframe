@@ -152,7 +152,7 @@ export function Sidebar({ app, collapsed, activeMenu, activeChild }: { app?: App
       {!collapsed && (
         <div className="hair-t flex items-center gap-2 border-line px-4 py-2 text-2xs text-ink-3">
           <Icon name="ti-shield-check" className="text-[13px]" />
-          Wireframe v1.0 · Sample data
+          © Meyora · Wireframe v1.0 · Sample data
         </div>
       )}
     </aside>

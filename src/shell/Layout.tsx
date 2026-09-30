@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { pathOf, type Resolved } from '@/config/registry';
 import type { AppConfig } from '@/config/types';
 import { cn } from '@/lib/cn';
+import meyoraLogo from '@/assets/meyora-logo.png';
 import { Toasts } from '@/components/overlays';
 import { Icon } from '@/components/ui';
 import { useUi } from '@/mock/ui';
@@ -76,9 +77,24 @@ export function Shell({ app, activeMenu, activeChild, children }: { app?: AppCon
       <Header activeApp={app?.id} onToggleSidebar={toggleSidebar} />
       <div className="flex min-h-0 flex-1">
         <Sidebar app={app} collapsed={sidebarCollapsed} activeMenu={activeMenu} activeChild={activeChild} />
-        <main className="flex min-w-0 flex-1 flex-col overflow-hidden">{children}</main>
+        <main className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
+          {children}
+          <Watermark />
+        </main>
       </div>
       <Toasts />
+    </div>
+  );
+}
+
+/**
+ * Meyora ownership watermark — shown on every page of the wireframe.
+ * Sits above the content at low opacity, ignores clicks, and multiplies so the logo's light background disappears.
+ */
+function Watermark() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center overflow-hidden select-none">
+      <img src={meyoraLogo} alt="" draggable={false} className="w-[min(62%,900px)] opacity-[0.14] mix-blend-multiply" />
     </div>
   );
 }

@@ -121,7 +121,7 @@ function Help() {
           </section>
           <section className="hair rounded-md border-blue-line bg-blue-tint p-3 text-xs text-blue-ink">
             <div className="mb-1 font-semibold">About this demo</div>
-            This is a frontend wireframe for client presentation. All data is sample data held in your browser session. Nothing is sent to a server.
+            This wireframe is the property of <strong className="font-semibold">Meyora</strong>, prepared for client presentation only. All data is sample data held in your browser session. Nothing is sent to a server.
             <div className="mt-2.5">
               <Button size="sm" icon="ti-refresh" onClick={() => { reset(); toast.success('Demo data reset', 'All registers restored to the original sample data.'); }}>
                 Reset demo data
